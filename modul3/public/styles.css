@@ -1,0 +1,171 @@
+:root {
+    --color-purple:rgb(100, 53, 209);
+}
+*{
+       
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+    
+
+
+}
+   
+    body {
+        background: #282a36;
+        font-family: 'Roboto';
+        text-align: center;
+        color:white;
+    }
+    header {
+        padding: 30px;
+        border-bottom: 1px solid #333333;
+        background-color: rgba(0,0,0,0.1);
+    }
+    .Menu a {
+        color:white;
+        padding: 30px;
+        font-size: 18px;
+        line-height: 28px;
+        text-decoration: none;
+    }
+    header div a:hover {
+        color: var(--color-purple);
+        transition: color 300ms;
+    }
+    #wrapper h1{
+        font-size: 42px;
+        line-height: 52px;
+        font-weight: bold;
+    }
+   #wrapper img {
+    border-radius: 50%;
+    margin-top: 32px;
+    border: 5px solid var(--color-purple);
+   }
+   #wrapper p {
+       font-size: 20px;
+       line-height: 25px;
+       margin-top: 40px;
+       margin-bottom: 40px;
+   }
+   #wrapper a {
+       color:white;
+       text-decoration: none;
+   }
+   #wrapper a:hover{
+       color: var(--color-purple);
+       transition: color 300ms;
+   }
+
+   #link-footer a {
+       color:white;
+       text-decoration: none;
+       padding:15px;
+       
+   }
+
+   #link-footer a:hover {
+    color: var(--color-purple);
+    transition: color 300ms;
+    border-bottom: 2px solid var(--color-purple);
+
+   }
+
+/*CARDS*/
+
+.aulas {
+    padding: 30px;
+}
+.cards {
+    max-width: 800px;
+    max-height: 1800px;
+    margin:0px auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+   }
+
+.card {
+    background-color:  rgba(0,0,0,0.1);
+    display: grid;
+}
+.card_image.new_course {
+  position: relative;
+}
+.notification {
+    position: absolute;
+    background: #39e85f;
+    color: rgba(236, 230, 230, 0.93);
+    padding: 4px;
+    border-radius: 10px;
+    right: -3px;
+    top: -10px;
+}
+.card_content,
+.card_info{
+    padding: 24px;
+    align-items: center;
+}
+
+.card_info{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+}
+.card_price{
+    background-color:rgba(0,0,0,0.1);
+    filter: brightness(90%);
+    padding: 5px 20px;
+    border-radius: 20px;
+}
+
+#starter:hover {
+    border:4px solid #7159c1;
+}
+#gostack:hover {
+    border: 4px solid #04d361;
+}
+#launchbase:hover{
+    border:4px solid #fd951f;
+}
+/*Modal*/
+.modal_overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top:0px;
+    opacity: 0;
+    visibility: hidden;
+}
+.modal{
+    width: 90%;
+    height: 90%;
+    background-color: white;
+    margin:5vh auto;
+    position: relative;
+
+}
+.close_modal{
+    color:black;
+    position: absolute;
+    right:8px;
+    top:8px;
+    cursor: pointer;
+}
+.modal_overlay.active{
+    opacity:1;
+    visibility: visible;
+}
+
+iframe {
+    width: 100%;
+    height: 90%;
+    position: relative;
+    top:5%;
+}
+
+/* NOT-FOUND*/
+.error{
+   margin-top: 10vh;
+}

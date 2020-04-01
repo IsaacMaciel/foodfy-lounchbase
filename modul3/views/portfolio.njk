@@ -1,0 +1,56 @@
+{% extends "layout.njk" %}
+
+{% block header %}
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+{% endblock header %}
+
+{% block content %}
+
+
+    <div id="wrapper">
+        <h1 class="aulas">Rocketseat</h1>
+    </div>
+
+    <section class="cards">
+
+        {% for intens in item %}
+       
+            <div class="card" id={{intens.course}}>
+                    <div class="card_image {{'new_course' if intens.notification}}" >
+                        <img src="{{intens.banner}}" alt=" banner do {{intens.course}}">
+                        {% if intens.notification %}
+                            <div class="notification">
+                                <p>New course</p>
+                            </div>
+                        {% endif %}
+                    </div>
+
+                    <div class="card_content">
+                        <p>{{intens.teacher}}</p>
+                    </div>
+                    <div class="card_info">
+                        <p>{{intens.duration}}</p>
+                        <p class="card_price">{{intens.price}}</p>
+                    </div>
+                
+            </div>
+
+        {% endfor %}
+        
+
+      
+
+    </section>
+
+    <div class="modal_overlay ">
+        <div class="modal">
+            <a  class="close_modal"> 
+                <i class="material-icons">close</i>
+            </a>
+            <iframe src="" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <script src="java.js"></script>
+
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+
+
+    <div id="wrapper">
+        <img src={{about.avatar_url}} alt="Diego">
+        <h1>{{about.title}}</h1>
+        <p> Instrutor da <a href="https://rocketseat.com.br/" target="_blank">RocketSeat</a></p>
+    </div>
+
+    <div id="link-footer" class="menu">
+        {% for link in about.links %}
+      
+            <a href="{{link.url}}" target="_blank">{{link.name}}</a>
+
+        {% endfor %}
+    </div>
+    
+{% endblock content %}
+
+

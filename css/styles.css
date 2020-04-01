@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans|Roboto&display=swap');
+
+
+
+* {
+    margin:0px;
+    padding: 0px;
+    border: 0px;
+}
+
+
+header, section,main{
+    max-width: 940px;
+    margin: 0 auto;
+}
+
+
+
+.menu{
+   text-decoration: none;
+   margin:36px 30px 36px 30px;
+   color:black;
+   font-size: 16px;
+   font-family: 'Roboto';
+   position: relative;
+   bottom: 40px;
+
+   
+}
+
+
+header img {
+    margin-top: 36px;
+    margin-bottom: 36px;
+    margin-right: 122.4px;
+
+}
+
+.base {
+    margin:0px auto;
+    background-color: #FBDFDB;
+    border-radius: 30px;
+    height: 366px;
+    width: 940px;
+    position: relative;
+
+
+
+}
+
+.base p {
+    opacity: 0.7;
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #000000;
+    line-height: 28px;
+    height: 84px;
+    width: 316px;
+    position: relative;
+    top:165px;
+    left:60px;
+
+
+
+}
+
+.base h1 {
+    font-family: Roboto-Bold;
+    font-size: 32px;
+    color: #111111;
+    position:absolute;
+    top: 117px;
+    left:60px;
+
+}
+
+#chef {
+    position: absolute;
+    bottom: 0px;
+    right:100px;
+    top:66px;
+  }
+
+
+#title {
+    font-family: 'Roboto';
+    font-size: 24px;
+    color: #111111;
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+}
+/** CARDS **/
+
+.cards {
+    margin:0px auto;
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+
+.card-image img {
+   width: 100%;
+   height: 100%;
+   border-radius: 15px;
+
+}
+
+.card-content h1{
+    font-family: Roboto;
+    font-size: 18px;
+    color: #111111;
+
+}
+
+.card-info {
+    font-family:'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #777777;
+
+}
+
+
+.rodape {
+    background: #EEEEEE;
+    height: 32px;
+    width:100%;
+    bottom: -15px;
+    position: absolute;
+    text-align: center;
+}
+.rodape p {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+    color: #999999;
+    position: relative;
+    line-height: 32px;
+  
+    
+}
+
+/** SOBRE.HTML **/
+.parag{
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+}
+#h1-title {
+    font-family: Roboto-Bold;
+    font-size: 24px;
+    color: #111111;
+    margin-bottom: 20px;
+}
+.h1{
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #444444;
+    line-height: 28px;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.sobre {
+    border-bottom: 3px solid black;
+}
+
+/* receitas.html */
+.receitas {
+    border-bottom: 3px solid black;
+}
+
+/* MODAL */
+.modal_overlay{
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: fixed;
+    top:0px;
+    visibility: hidden;
+    opacity: 0;
+}
+.active {
+    opacity:1;
+    visibility: visible;
+}
+
+.modal{
+    width: 660px;
+    height: 413px;
+    margin:18vh auto;
+    position: relative;
+    border-radius: 16px;
+    border-radius: 16px;
+    background: #FFFFFF;
+    
+
+}
+
+.modal_content{
+    position: absolute;
+    
+}
+.modal_content img {
+    width: 600px;
+    height: 200px;
+    margin:30px 30px 0px 30px;
+    top:30px;
+    left: 30px;
+
+}
+
+.h1_content{
+    font-family: Roboto-Regular;
+    font-size: 24px;
+    color: #111111;
+    text-align: center;
+    margin-top: 20px;
+ 
+}
+
+.p_content{
+    font-family: Roboto-Regular;
+    font-size: 18px;
+    color: #777777;
+    text-align: center;
+}
+
+
+.close_modal {
+    font-family: Roboto-Regular;
+    font-size: 20px;
+    color: #999999;
+    text-align: center;
+    width: 118px;
+    height: 36px;
+    margin: 60px 281px 30px 281px;
+    cursor: pointer;
+
+}
