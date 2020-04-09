@@ -2,7 +2,7 @@
 
 
 
-* {
+*,h1 {
     margin:0px;
     padding: 0px;
     border: 0px;
@@ -238,4 +238,12 @@ header img {
     margin: 60px 281px 30px 281px;
     cursor: pointer;
 
+}
+
+.not-found{
+    font-family: Roboto;
+    font-size: 40px;
+    color: #111111;
+    text-align: center;
+    margin-top: 20%;
 }

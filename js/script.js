@@ -4,8 +4,8 @@ const cards = document.querySelectorAll('.card');
 for (let card of cards) {
     card.addEventListener("click",function(){
         const id = card.getAttribute("id");
-        const h1 = card.innerHTML("h1");
-        const p = card.innerHTML("p");
+        const h1 = card.querySelector('.card-content h1').textContent
+        const p = card.querySelector('.card-info p').textContent
         modalOverlay.classList.add('active');
         modalOverlay.querySelector("img").src = id;
         modalOverlay.querySelector("h1").textContent = h1;

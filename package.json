@@ -1,0 +1,26 @@
+{
+  "name": "foodfy-lounchbase",
+  "version": "1.0.0",
+  "description": "Criação da pagina Web Foodfy",
+  "main": "routes.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IsaacMaciel/foodfy-lounchbase.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IsaacMaciel/foodfy-lounchbase/issues"
+  },
+  "homepage": "https://github.com/IsaacMaciel/foodfy-lounchbase#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.3",
+    "nunjucks": "^3.2.1"
+  }
+}

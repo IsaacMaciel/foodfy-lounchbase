@@ -1,0 +1,64 @@
+{% extends "layout.njk" %}
+
+{% block content %}
+    <main>
+        <section class="cards">
+
+
+           {% for food in foods %}
+          
+                <div class="card" id="{{food.source}}">
+                    <div class="card-image">
+                        <img src="{{food.source}}" alt="{{food.name}}">
+                    </div>
+                    <div class="card-content">
+                        <h1 >{{food.title}}</h1>
+                    </div>
+                    <div class="card-info">
+                        <p >por {{food.actor}}</p>
+                    </div>
+                </div>
+                
+            {% endfor %}
+
+            {% for food in foods %}
+          
+                <div class="card" id="{{food.source}}">
+                    <div class="card-image">
+                        <img src="{{food.source}}" alt="{{food.name}}">
+                    </div>
+                    <div class="card-content">
+                        <h1 >{{food.title}}</h1>
+                    </div>
+                    <div class="card-info">
+                        <p >por {{food.actor}}</p>
+                    </div>
+                </div>
+                
+            {% endfor %}
+
+
+        </section>
+
+
+
+    </main>
+
+    <div class="modal_overlay">
+        <div class="modal">
+
+            <div class="modal_content">
+                <img src="" alt="">
+                <h1 class="h1_content"></h1>
+                <p class ="p_content"></p>
+                <p class="close_modal">
+                    Fechar modal
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+<script src="/script.js"></script>
+
+{% endblock content %}
