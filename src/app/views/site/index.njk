@@ -1,9 +1,9 @@
-{% extends "layout.njk" %}
+{% extends "site/layout.njk" %}
 {% block content %}
 
     <div class="base">
         <h1>As melhores receitas</h1>
-        <img id ="chef" src="/chef.png" alt="chef">
+        <img id ="chef" src="images/chef.png" alt="chef">
         <p>Aprenda a construir os melhores preatos com receitas criadas por profissionais do mundo inteiro.</p>
 
 
@@ -16,15 +16,15 @@
 
             {% for food in foods %}
             
-                <div class="card" id="{{food.name}}">
+                <div class="card" id="{{food.title}}">
                     <div class="card-image">
-                        <img src="{{food.source}}" alt="{{food.name}}">
+                        <img src="{{food.image}}" alt="{{food.title}}">
                     </div>
                     <div class="card-content">
                         <h1>{{food.title}}</h1>
                     </div>
                     <div class="card-info">
-                        <p>por {{food.actor}}</p>
+                        <p>por {{food.author}}</p>
                     </div>
                 </div>
             {% endfor %}

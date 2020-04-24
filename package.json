@@ -5,7 +5,7 @@
   "main": "routes.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,9 @@
   "homepage": "https://github.com/IsaacMaciel/foodfy-lounchbase#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "method-override": "^3.0.0",
     "nodemon": "^2.0.3",
-    "nunjucks": "^3.2.1"
+    "nunjucks": "^3.2.1",
+    "pg": "^8.0.3"
   }
 }

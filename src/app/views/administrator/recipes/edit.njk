@@ -1,0 +1,40 @@
+ {% extends "administrator/layout.njk" %}
+{% block content %}
+
+
+<div class="title-fields">
+    <h1>Editar Receita</h1>
+        <div class="actions edit">
+            <input type="submit" form="delete-recipe" id="delete" value="Deletar">
+            <input type="submit" id="save" form="edit-recipe" value="Salvar Receita">
+        </div>
+    </div>
+
+<form id="edit-recipe" action="/admin/recipe?_method=PUT" method="POST">     
+    {% include 'administrator/recipes/fields.njk'%}
+    <input type="hidden" name="id" value={{recipes.id}}>
+</form>
+
+<form id="delete-recipe"action="/admin/recipe?_method=DELETE" method="POST">
+    <input type="hidden" name="id" value={{recipes.id}}>
+</form>
+
+
+
+<script>
+    const formDelete = document.querySelector("#delete-recipe");
+    formDelete.addEventListener("submit",function(event) {
+        const confirmation = confirm("Deseja deletar?");
+
+        if (!confirmation) {
+            event.preventDefault();
+        }
+    
+    })
+
+</script>
+
+
+
+
+{% endblock content %}

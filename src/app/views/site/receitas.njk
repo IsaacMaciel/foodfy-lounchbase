@@ -1,0 +1,34 @@
+{% extends "site/layout.njk" %}
+
+{% block content %}
+    <main>
+        <section class="cards">
+
+           {% for food in foods %}
+        
+                <div class="card " id="{{food.id}}">
+                    <div class="card-image">
+                        <img src="{{food.image}}" alt="{{food.title}}">
+                    </div>
+                    <div class="card-content">
+                        <h1 >{{food.title}}</h1>
+                    </div>
+                    <div class="card-info">
+                        <p >por {{food.author}}</p>
+                    </div>
+                </div>
+                
+            {% endfor %}
+
+
+
+        </section>
+
+
+
+    </main>
+
+
+<script src="/script.js"></script>
+
+{% endblock content %}

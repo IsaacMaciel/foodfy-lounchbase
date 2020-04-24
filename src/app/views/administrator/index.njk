@@ -1,0 +1,28 @@
+
+ {% extends "administrator/layout.njk" %}
+ {% block content %}
+    <div class="titleandbutton">
+        <h1>Gerenciar Receitas </h1>
+        <a href="/admin/recipe/create">Criar nova Receita</a>
+    </div>
+    
+    <div class="container-receipts">
+                        {% for food in foods %}
+
+                        <div class="card " id="{{food.id}}">
+                            <div class="card-image">
+                                <img src="{{food.image}}" alt="{{food.title}}">
+                            </div>
+                            
+                            <div class="card-content">
+                                <h1 >{{food.title}}</h1>
+                                <p >por {{food.author}}</p>
+                                <a href="/admin/recipe/{{food.id}}">Visualizar</a>
+                            </div>
+                        </div>    
+
+                    {% endfor %}
+
+    </div>
+
+ {% endblock content %}

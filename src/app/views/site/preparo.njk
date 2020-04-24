@@ -1,0 +1,71 @@
+{% extends "site/layout.njk" %}
+
+{% block content %}
+    <main>
+        <section class="cards">
+
+                <div class="" id="{{food.image}}">
+                    <div class="">
+                        <img src="{{food.image}}" alt="{{food.title}}">
+                    </div>
+                    <div class="receipts-content">
+                        <h1 >{{food.title}}</h1>
+                        <p >por {{food.author}}</p>
+                    </div>
+                    
+
+
+                    <div class="receipts-info">
+                        <div class="flex">
+                            <h1>Ingredientes</h1> <p class="show_ingredients show" >ESCONDER</p> 
+                        </div>
+                        <div class="content-ingredients" id="ingredients">
+                            {% for ingredients in food.ingredients %}
+                        
+                                <li>{{ingredients}}</li>
+
+                            {% endfor %}
+                         </div>
+                    </div>
+
+
+
+                    <div class="preparation-info">
+                        <div class="flex">
+                            <h1>Modo de preparo</h1> <p class="show_preparation show">ESCONDER</p> 
+                        </div>
+                        <div class="content-preparation" id="preparation">
+                            {% for preparation in food.preparation %}
+
+                                <li>{{preparation}}</li>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="information">
+                    <div class="flex">
+                        <h1>Informações adicionais</h1> 
+                        <p class="show_information show">ESCONDER</p>
+                        
+                    </div>
+
+                    <div class="content-information" id="information">
+                        <p id="p-footer">{{food.information}}</p>
+                    </div>
+                    </div>
+
+                    
+
+                </div>
+ 
+
+        </section>
+
+
+
+    </main>
+
+    <script src="/script.js"></script>
+
+{% endblock content %}

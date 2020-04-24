@@ -1,0 +1,27 @@
+ {% extends "administrator/layout.njk" %}
+ {% block content %}
+
+<div class="titleandbutton">
+    <h1>Gerenciar chefs</h1>
+    <a href="/admin/chefs/create"> Criar chef</a>
+</div>
+
+    <div class="container-chefs">
+         {% for chef in chefs %}
+
+            <div class="chef">
+                <div class="chef-image">
+                   <img src="{{chef.avatar_url}}" alt="">
+                </div>
+                <div class="chef-content">
+                    <span class="chef-span">{{chef.name}} </span>
+                    <a href="/admin/chef/{{chef.id}}">Visualizar</a>
+                    
+                </div>
+            </div>
+
+        {% endfor %}  
+    </div>
+
+
+ {% endblock content %}

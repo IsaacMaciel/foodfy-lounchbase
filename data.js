@@ -2,50 +2,50 @@ module.exports = [
 
         {
             
-            name:'bacon-burguer',
-            source:'/Rectangle Copy.png',
+            title:'bacon-burguer',
+            image:'/Rectangle Copy.png',
             title:'Triplo bacon burger',
-            actor:'Jorge Relato',
+            author:'Jorge Relato',
     
         },
 
         { 
-            name:'pizza-estation',
-            source:'/pizza.png',
+            title:'pizza-estation',
+            image:'/pizza.png',
             title:'Pizza 4 estações',
-            actor:'Fabiana Melo',
+            author:'Fabiana Melo',
         
         },
 
         { 
-            name:'espaguete-alho',
-            source:'/espaguete.png',
+            title:'espaguete-alho',
+            image:'/espaguete.png',
             title:'Espaguete ao alho',
-            actor:'Júlia Kinoto',
+            author:'Júlia Kinoto',
         
         },
 
         { 
-            name:'lasanha-cheese',
-            source:'/lasanha.png',
+            title:'lasanha-cheese',
+            image:'/lasanha.png',
             title:'Lasanha mac n’ cheese',
-            actor:'Juliano Vieira',
+            author:'Juliano Vieira',
         
         },
 
         { 
-            name:'docinho-ceu',
-            source:'/doce.png',
+            title:'docinho-ceu',
+            image:'/doce.png',
             title:'Docinhos pão-do-céu',
-            actor:'Ricardo Golvea',
+            author:'Ricardo Golvea',
         
         },
 
         { 
-            name:'asinha-babercue',
-            source:'/asinhas.png',
+            title:'asinha-babercue',
+            image:'/asinhas.png',
             title:'Asinhas de frango ao barbecue',
-            actor:'Vania Steroski',
+            author:'Vania Steroski',
         
         },
 
