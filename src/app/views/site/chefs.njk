@@ -1,12 +1,8 @@
- {% extends "administrator/layout.njk" %}
- {% block content %}
+{% extends "site/layout.njk" %}
+{% block content %}
 
-<div class="titleandbutton">
-    <h1>Gerenciar chefs</h1>
-    <a href="/admin/chefs/create"> Criar chef</a>
-</div>
 
-    <div class="container-chefs">
+<div class="container-chefs">
          {% for chef in chefs %}
 
             <div class="chef">
@@ -15,7 +11,7 @@
                 </div>
                 <div class="chef-content">
                     <span class="chef-span">{{chef.name}} </span>
-                    <a href="/admin_chef/{{chef.id}}">Visualizar</a>
+                    <p>{{chef.total}} receitas</p>
                     
                 </div>
             </div>
@@ -24,4 +20,7 @@
     </div>
 
 
- {% endblock content %}
+
+
+{% endblock content %}
+

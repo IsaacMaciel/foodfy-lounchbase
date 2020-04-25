@@ -95,6 +95,18 @@ module.exports = {
             callback();
         })
     },
+    foundBy(filter,callback){
+        const query = `SELECT recipes.*,chefs.name  AS author
+        FROM recipes
+        LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+        WHERE recipes.title ILIKE '%${filter}%'`;
+
+        db.query(query,(err,results)=>{
+            if (err) throw `Erro:${err}`;
+
+            callback(results.rows);
+        })
+    },
 
     delete(id,callback) {
         const query = `DELETE FROM recipes

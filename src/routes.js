@@ -15,7 +15,8 @@ route.get("/sobre",function(req,res){
 });
 
 route.get("/receitas",siteController.list);
-
+route.get("/chefs",siteController.show);
+route.get("/search",siteController.search);
 route.get("/receitas/:index", function (req, res) {
     const recipeIndex = req.params.index;
   
@@ -27,6 +28,7 @@ route.get("/receitas/:index", function (req, res) {
         }
     
   })
+
 
 
 //ROTAS DA PAGINA RECIPES
@@ -46,7 +48,7 @@ route.delete('/admin/recipe',controller.delete); //OK
 
 //ROTAS DA PAGINA CHEF
 
-route.get('/admin/chefs/',chef.index)
+route.get('/admin_chefs',chef.index)
 
 route.get('/admin/chefs/create', (req,res) => {
     res.render('administrator/chefs/create');
@@ -54,7 +56,7 @@ route.get('/admin/chefs/create', (req,res) => {
 route.put('/admin/chef',chef.put);
 route.post('/admin/chefs/create',chef.post);
 route.get('/admin/chefs/edit/:id',chef.edit)
-route.get('/admin/chef/:id',chef.show);
+route.get('/admin_chef/:id',chef.show);
 route.delete('/admin/chef',chef.delete);
 
 

@@ -51,6 +51,17 @@ module.exports = {
             callback(results.rows[0]);
         })
     },
+    findChefandTotalRecipes(callback){
+        const query = `SELECT chefs.*, COUNT (recipes) AS total
+        FROM chefs
+        LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+        GROUP BY chefs.id`;
+
+        db.query(query,(err,results)=>{
+            if (err) `Erro:${err}`;
+            callback(results.rows);
+        })
+    },
 
     recipesForChef(id,callback){
         const query = `SELECT recipes.*,chefs.name AS author
