@@ -12,6 +12,7 @@ module.exports = {
                 return res.send('Favor, preencha todos os campos corretamente.');
             }
         }
+        if (req.files.length == 0) return res.send('Favor, envie uma foto');
 
         chefs.create(req.body,(chefs)=>{
             return res.redirect('/admin/chefs/');

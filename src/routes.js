@@ -1,7 +1,7 @@
 const express = require("express");
 const route = express.Router();
-const foods = require('../data');
-const {recipes} = require('../assets/data.json');
+const multer = require('./app/middleware/multer');
+
 const controller = require('./app/controllers/recipe-controller');
 const siteController = require('./app/controllers/site-controller');
 const chef = require('./app/controllers/chef-controller');
@@ -54,7 +54,7 @@ route.get('/admin/chefs/create', (req,res) => {
     res.render('administrator/chefs/create');
 })
 route.put('/admin/chef',chef.put);
-route.post('/admin/chefs/create',chef.post);
+route.post('/admin/chefs/create',multer.single('photochef'),chef.post);
 route.get('/admin/chefs/edit/:id',chef.edit)
 route.get('/admin_chef/:id',chef.show);
 route.delete('/admin/chef',chef.delete);

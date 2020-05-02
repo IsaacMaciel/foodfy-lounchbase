@@ -5,16 +5,10 @@
 <h1>Criando chef</h1>
 <input type="submit" id="save" form="add-chef" value="Salvar chef">
 </div>
-<form id="add-chef" action="/admin/chefs/create" method="POST">
+<form id="add-chef" action="/admin/chefs/create" method="POST" enctype="multipart/form-data">
 
      {% include 'administrator/chefs/fields.njk'%}
   
 </form>
-
-
-
-
-
-
 
  {% endblock content %}

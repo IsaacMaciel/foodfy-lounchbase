@@ -1,5 +1,4 @@
 const fs = require('fs');
-const data = require('../../../assets/data.json');
 const Recipes = require('../models/recipe');
 const Chefs = require('../models/chefs');
 

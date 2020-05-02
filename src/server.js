@@ -29,5 +29,5 @@ nunjucks.configure("src/app/views",{
 */
 /* Configurando a porta do servidor */
 server.listen(3000,function(){
-    console.log("Foodfy Rodando.");
+    console.log("Foodfy:3000 Rodando");
 })
