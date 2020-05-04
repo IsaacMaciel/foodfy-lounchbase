@@ -39,7 +39,7 @@ route.get('/admin/edit',function(req,res){
     res.render('administrator/edit');
 })
 route.get('/admin/recipe/create',controller.create); //OK
-route.post('/admin/recipe/create',controller.post);
+route.post('/admin/recipe/create',multer.array('photos',6),controller.post);
 route.get('/admin/recipe/edit/:id',controller.edit);
 route.get('/admin/recipe/:id',controller.show);
 route.delete('/admin/recipe',controller.delete); //OK

@@ -4,21 +4,19 @@ const {date} = require('../lib/utils');
 
 module.exports = {
 
-    create(data,callback){
+    create(data){
         const query=`INSERT INTO recipes (
-            chef_id,
-  					image,
+                    chef_id,
   					title,
   					ingredients,
   					preparation,
   					information,
                     created_at
-        ) VALUES ($1,$2,$3,$4,$5,$6,$7)
+        ) VALUES ($1,$2,$3,$4,$5,$6)
         RETURNING id`;
 
         const values = [
             data.chef,
-            data.image,
             data.title,
             data.ingredients,
             data.preparation,
@@ -27,10 +25,7 @@ module.exports = {
 
         ];
 
-        db.query(query,values,(err,results)=>{
-            if (err) throw `Erro:${err}`
-            callback(results.rows[0]);
-        })
+        return db.query(query,values);
 
     },
 

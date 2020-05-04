@@ -1,7 +1,22 @@
    
    
     <div class="item"> <h3>Imagem da receita</h3></div>
-    <input type="text" value="{{recipes.image}}"name="image" id="" placeholder="http://">
+
+    <div id="photos-upload"> 
+
+        <div class="photo-add">
+        
+                <input 
+                id="photos-input"
+                type="file" 
+                name="photos" 
+                multiple
+                accept="image/*"
+                onchange="PhotosUpload.handleInputReceipt(event)"
+                >
+                <i class="material-icons"> add</i>
+        </div>
+            </div>
 
     <div class="recipe-title">
         <h3>Nome da Receita</h3>
