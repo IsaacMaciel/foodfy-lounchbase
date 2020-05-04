@@ -15,6 +15,19 @@ const PhotosUpload = {
             event.preventDefault();
             return;
         }
+
+        Array.from(fileList).forEach(file => {
+            const reader = new FileReader();
+
+            reader.onload = () => {
+                const image = new Image();
+                image.src = String(reader.result);
+
+                const container = document.createElement('div');
+            }
+
+            reader.readAsDataURL(file);
+        })
     }
 
     

@@ -1,12 +1,25 @@
   <div class="item">
     <h3>Nome</h3>
-    <input type="text" name="name" value="{{chef.name}}" placeholder="Nome">
+    <input 
+    type="text" 
+    name="name" 
+    value="{{chef.name}}"
+    placeholder="Nome"
+    >
     </div>
 
     <div class="item">
     <h3>Avatar</h3>
-    <div id="photo-upload">
 
+    {% if file.src %}
+        <input 
+        type="text" 
+        value="{{file.src}}"
+        >
+    {% endif %}
+
+    <div id="photo-upload">
+   
        <input 
        id="photos-input" 
        type="file" 
@@ -15,6 +28,8 @@
        accept="image/*" 
        onchange="PhotosUpload.handleInputChef(event)"
        >
+
+ 
 
        <p>Enviar avatar</p>
     </div>

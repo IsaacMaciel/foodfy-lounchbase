@@ -3,27 +3,22 @@ const {date} = require('../lib/utils');
 
 module.exports = {
 
-    create(data,callback) {
-        console.log(data);
+    create({name,fileId}) {
         const query= `INSERT INTO chefs (
             name,
-            avatar_url,
-            created_at
+            created_at,
+            file_id
         ) VALUES ($1,$2,$3)
         RETURNING id`
         ;
 
         const values = [
-            data.name,
-            data.avatar_url,
-            date(Date.now()).iso
+            name,
+            date(Date.now()).iso,
+            fileId
         ];
         
-        db.query(query,values,(err,result)=>{
-            if (err) throw `Erro: ${err}`;
-
-            callback(result.rows[0]);
-        })
+        return db.query(query,values);
 
     },
     all(callback) {
@@ -38,7 +33,7 @@ module.exports = {
         })
 
     },
-
+/*
     find(id,callback){
         const query = `SELECT chefs.*, COUNT (recipes) AS total
         FROM chefs
@@ -50,7 +45,7 @@ module.exports = {
             if (err) throw `Erro: ${err}`
             callback(results.rows[0]);
         })
-    },
+    }, */
     findChefandTotalRecipes(callback){
         const query = `SELECT chefs.*, COUNT (recipes) AS total
         FROM chefs
@@ -94,14 +89,11 @@ module.exports = {
         })
 
     },
-    edit(id,callback) {
+    find(id) {
         const query = `SELECT * FROM chefs
         WHERE chefs.id = ${id}`;
 
-        db.query(query,(err,results)=>{
-            if (err) throw `Erro:${err}`
-            callback(results.rows[0]);
-        })
+        return db.query(query);
     },
     delete(id,callback) {
         const query = `DELETE FROM chefs
