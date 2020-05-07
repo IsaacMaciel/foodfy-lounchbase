@@ -110,9 +110,37 @@ const PhotosUpload = {
         PhotosUpload.input.files = PhotosUpload.getAllFiles();
 
         photodiv.remove();
+    },
+    removeOldPhoto(event) {
+        const photoDiv = event.target.parentNode;
+
+        if (photoDiv.id) {
+            const removedFiles = document.querySelector('input[name="removed_files"]');
+            if (removedFiles) {
+                removedFiles.value += `${photoDiv.id},`
+            }
+        }
+
+        photoDiv.remove();
     }
 
-}  
+}
+
+const ImageGallery = {
+    highlight: document.querySelector('.card-image.recipe img'),
+    previews: document.querySelectorAll('.gallery-preview img'),
+    setImage(event) {
+        const {target} = event;
+        console.log(target.src);
+
+        ImageGallery.previews.forEach(preview => preview.classList.remove('active'));
+        target.classList.add('active');
+
+        ImageGallery.highlight.src = target.src;
+        console.log(ImageGallery.highlight.src);
+        
+    }
+}
 
 
 

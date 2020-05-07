@@ -2,9 +2,10 @@
   "name": "foodfy-lounchbase",
   "version": "1.0.0",
   "description": "Criação da pagina Web Foodfy",
-  "main": "routes.js",
+  "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "debug": "nodemon --inspect=0.0.0.0:9229 src/server.js",
     "start": "nodemon src/server.js"
   },
   "repository": {

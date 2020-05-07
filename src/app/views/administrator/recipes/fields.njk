@@ -16,7 +16,19 @@
                 >
                 <i class="material-icons"> add</i>
         </div>
+        {% for image in files %}
+
+            <div class="photo" id ="{{image.id}}">
+                <img src="{{image.src}}" alt="">
+                <i 
+                class="material-icons"
+                onclick="PhotosUpload.removeOldPhoto(event)"
+                >close</i>
             </div>
+        {% endfor %}
+        <input type="hidden" name="removed_files">
+
+    </div>
 
     <div class="recipe-title">
         <h3>Nome da Receita</h3>
@@ -45,13 +57,13 @@
        
             {% for ingredient in recipes.ingredients %}
                 <div class="ingredient">
-                    <input type="text"  name="ingredients" value="{{ingredient}}" placeholder="Ingredient" />
+                    <input type="text"  name="ingredients[]" value="{{ingredient}}" placeholder="Ingredient" />
                 </div>
              {% endfor %}   
 
              {% if recipes.ingredients == null %}
                 <div class="ingredient">
-                    <input type="text"  name="ingredients" value="{{ingredient}}" placeholder="Ingredient" />
+                    <input type="text"  name="ingredients[]" value="{{ingredient}}" placeholder="Ingredient" />
                 </div>
              {% endif %}
          
@@ -63,12 +75,12 @@
         <h3>Modo de preparo</h3>
          {% for preparation in recipes.preparation %}
                 <div class="preparation">
-                    <input type="text" name="preparation" value="{{preparation}}" placeholder="Preparation" />
+                    <input type="text" name="preparation[]" value="{{preparation}}" placeholder="Preparation" />
                 </div>
         {% endfor %}
         {% if recipes.preparation == null %}
                  <div class="preparation">
-                    <input type="text" name="preparation" value="{{preparation}}"  placeholder="Preparation" />
+                    <input type="text" name="preparation[]" value="{{preparation}}"  placeholder="Preparation" />
                 </div>
         {% endif %}
             

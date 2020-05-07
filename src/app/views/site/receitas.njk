@@ -7,9 +7,14 @@
            {% for food in foods %}
         
                 <div class="card " id="{{food.id}}">
+                    {% for image in images %}
                     <div class="card-image">
-                        <img src="{{food.image}}" alt="{{food.title}}">
+                        {% if image.recipe_id == food.id %}
+                            <img src="{{image.src}}" alt="{{image.name}}">
+                        {% endif %}
                     </div>
+                    {% endfor %}
+
                     <div class="card-content">
                         <h1 >{{food.title}}</h1>
                     </div>

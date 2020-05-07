@@ -73,6 +73,30 @@ main h1 {
     font-weight: bold;
 }
 
+.gallery-preview {
+   display: flex;
+   justify-content: flex-end;
+
+   margin-top: 8px;
+}
+.gallery-preview  img.active,
+.gallery-preview  img:hover {
+    opacity:1;
+}
+.gallery-preview  img {
+    height: 50px;
+    width: 50px;
+
+    margin-right: 10px;
+    cursor:pointer;
+
+    transition: opacity 400ms;
+    opacity: 0.5;
+    border: 1px solid #DDDDDD;
+    object-fit: cover;
+
+}
+
 .card {
     display: grid;
     grid-template-columns: 1fr 1fr ;
@@ -89,6 +113,7 @@ main h1 {
      width: 100%;
      height: 280px;
      border-radius: 15px;
+     object-fit: none;
  } 
 
 .card-content {
@@ -411,13 +436,13 @@ form h3 {
 
 /* Photos Upload Receitas  */
 
-#add-recipe #photos-upload {
+ #photos-upload {
     display: grid;
     grid-template-columns:repeat(6,149px);
     gap:10px;
 }
 
-#add-recipe #photos-upload .photo-add {
+#photos-upload .photo-add {
 
     position: relative;
     background: #FFFFFF;
@@ -427,7 +452,7 @@ form h3 {
     height: 149px;
 
 }
-#add-recipe #photos-upload i {
+ #photos-upload i {
     font-size: 28px;
     color: #777777;
 
@@ -442,11 +467,11 @@ form h3 {
 }
 
 
-#add-recipe #photos-upload .photo {
+#photos-upload .photo {
     position: relative;
 }
 
-#add-recipe #photos-upload .photo i {
+#photos-upload .photo i {
     position: absolute;
     top:0;
     left:0;
@@ -467,11 +492,11 @@ form h3 {
 
     transition: opacity 400ms;
 }
-#add-recipe #photos-upload .photo i:hover {
+#photos-upload .photo i:hover {
     opacity: 1;
 }
 
-#add-recipe #photos-upload .photo img {
+#photos-upload .photo img {
     height: 149px;
     width: 100%;
 
@@ -479,7 +504,7 @@ form h3 {
 }
 
 
-#add-recipe #photos-upload #photos-input {
+#photos-upload #photos-input {
    
     display:block;
 

@@ -6,7 +6,7 @@ const controller = require('./app/controllers/recipe-controller');
 const siteController = require('./app/controllers/site-controller');
 const chef = require('./app/controllers/chef-controller');
 
-
+//ROTAS DA PAGINA FOODFY
 route.get("/",siteController.index);
 
 route.get("/sobre",function(req,res){
@@ -34,7 +34,7 @@ route.get("/receitas/:index", function (req, res) {
 //ROTAS DA PAGINA RECIPES
 
  route.get('/admin',controller.index) //OK
-route.put('/admin/recipe',controller.put); //OK
+route.put('/admin/recipe',multer.array('photos',6),controller.put); //OK
 route.get('/admin/edit',function(req,res){
     res.render('administrator/edit');
 })
@@ -53,7 +53,7 @@ route.get('/admin_chefs',chef.index)
 route.get('/admin/chefs/create', (req,res) => {
     res.render('administrator/chefs/create');
 })
-route.put('/admin/chef',chef.put);
+route.put('/admin/chef',multer.single('photochef'),chef.put);
 route.post('/admin/chefs/create',multer.single('photochef'),chef.post);
 route.get('/admin/chefs/edit/:id',chef.edit)
 route.get('/admin_chef/:id',chef.show);

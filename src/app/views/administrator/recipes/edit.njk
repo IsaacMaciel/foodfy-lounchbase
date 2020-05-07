@@ -10,7 +10,7 @@
         </div>
     </div>
 
-<form id="edit-recipe" action="/admin/recipe?_method=PUT" method="POST">     
+<form id="edit-recipe" action="/admin/recipe?_method=PUT" method="POST" enctype="multipart/form-data">     
     {% include 'administrator/recipes/fields.njk'%}
     <input type="hidden" name="id" value={{recipes.id}}>
 </form>

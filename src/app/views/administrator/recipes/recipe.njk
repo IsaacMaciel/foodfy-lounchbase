@@ -4,12 +4,26 @@
 <section class="cards">
         <div class="titleandbutton"> 
             <h1>Receita: {{food.title}}</h1> <a href="/admin/recipe/edit/{{food.id}}">Editar Receita</a>
-        </div>
-        
-                <div class="container-page-recipe" id="{{food.image}}">
-                    <div class="card-image recipe">
-                        <img src="{{food.image}}" alt="{{food.title}}">
+        </div>      
+            <div class="container-page-recipe" id="{{files[0].src}}">
+                    <div class="main">
+                        <div class="card-image recipe">
+                        <img src="{{files[0].src}}" alt="{{food.title}}">
+                        </div>
+                        <div class="gallery-preview">
+                            {% for image in files %}
+                            <img 
+                            src="{{image.src}}" 
+                            alt="{{image.name}}"
+                            onclick="ImageGallery.setImage(event)"
+                            {% if loop.index0 == 0 %}
+                                class="active"
+                            {% endif %}
+                            >
+                            {% endfor %}
+                        </div>
                     </div>
+                    
                     <div class="receipts-content">
                         <h1 >{{food.title}}</h1>
                         <p >por {{food.author}}</p>
@@ -59,7 +73,7 @@
 
                     
 
-                </div>
+            </div>
  
 
         </section>

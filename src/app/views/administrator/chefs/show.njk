@@ -10,7 +10,11 @@
 
     <div class="show-chef">
         <div class="chef-image">
-            <img src="{{chef.avatar_url}}" alt="">
+            {% for image in filesChef %}
+                {% if image.id == chef.id %}
+            <img src="{{image.src}}" alt="">
+                {% endif %}
+            {% endfor %}
         </div>
         <div class="chef-content">
             <h1>{{chef.name}}</h1>
@@ -19,13 +23,15 @@
     </div>
         <h1>Receitas</h1>
        <div class="container-receipts">
-       
-                        {% for food in foods %}
-
-                        <div class="card " id="{{food.id}}">
-                            <div class="card-image">
-                                <img src="{{food.image}}" alt="{{food.title}}">
-                            </div>
+            {% for food in foods %}
+                <div class="card " id="{{food.id}}">
+                    {% for image in filesRecipe %}
+                        <div class="card-image">
+                            {% if image.recipe_id == food.id %}
+                                <img src="{{image.src}}" alt="{{image.name}}">
+                            {% endif %}
+                        </div>
+                    {% endfor %}
                             
                             <div class="card-content">
                                 <h1 >{{food.title}}</h1>
@@ -34,7 +40,7 @@
                             </div>
                         </div>    
 
-                    {% endfor %}
+            {% endfor %}
 
     </div>
 
