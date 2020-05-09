@@ -263,7 +263,7 @@ button[type="button"] {
     background-color: white;
 }
 
-input[type="text"] {
+input[type="text"],textarea {
     width: 100%;
     outline: none;
     font-size: 18px;
@@ -275,6 +275,9 @@ input[type="text"] {
     padding: 15px 20px;
     margin-bottom: 10px;
     box-sizing: border-box;
+}
+textarea{
+height: 100px;
 }
 input[type="submit"] {
     font-family: Roboto;

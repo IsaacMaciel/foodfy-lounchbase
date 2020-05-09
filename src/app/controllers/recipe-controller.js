@@ -36,6 +36,7 @@ module.exports = {
     async index(req,res) {
         let results = await Recipes.index();
         const recipe = results.rows;
+      
         
         async function getImage(recipeId) {
             const results = await RecipeFiles.find(recipeId);
@@ -49,6 +50,11 @@ module.exports = {
     
         const filesPromise = await results.rows.map(recipe => getImage(recipe.id));
         const images = await Promise.all(filesPromise);
+
+
+        
+
+        
         
 
 
