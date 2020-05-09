@@ -45,8 +45,9 @@ module.exports = {
     index(){
         try {
             const query = `SELECT recipes.*,chefs.name  AS author
-                            FROM recipes
-                            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)`;
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            ORDER BY created_at DESC`;
             return db.query(query);
             
         } catch (error) {
@@ -97,7 +98,8 @@ module.exports = {
         const query = `SELECT recipes.*,chefs.name  AS author
         FROM recipes
         LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-        WHERE recipes.title ILIKE '%${filter}%'`;
+        WHERE recipes.title ILIKE '%${filter}%'
+        ORDER BY updated_at DESC`;
 
         return db.query(query);
     },

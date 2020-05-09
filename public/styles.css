@@ -20,6 +20,7 @@ header, section,main{
 
 
 
+
 .menu{
    text-decoration: none;
    margin-right:30px;
@@ -155,12 +156,11 @@ header img {
 
 .rodape {
     background: #EEEEEE;
+
     height: 32px;
     width:100%;
-    bottom: 0px;
-    position: fixed;
     text-align: center;
-    margin-top: 100px;
+    margin-top: auto;
 }
 .rodape p {
     font-family: 'Open Sans', sans-serif;

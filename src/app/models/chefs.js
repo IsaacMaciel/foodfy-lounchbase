@@ -72,7 +72,8 @@ module.exports = {
             const query = `SELECT recipes.*,chefs.name AS author
             FROM recipes
             LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
-            WHERE chefs.id = ${id}`;
+            WHERE chefs.id = ${id}
+            ORDER BY created_at DESC`;
     
             return db.query(query);
             
