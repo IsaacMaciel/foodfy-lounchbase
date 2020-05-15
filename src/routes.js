@@ -2,9 +2,10 @@ const express = require("express");
 const route = express.Router();
 const multer = require('./app/middleware/multer');
 
-const controller = require('./app/controllers/recipe-controller');
+const recipeController = require('./app/controllers/recipe-controller');
 const siteController = require('./app/controllers/site-controller');
 const chef = require('./app/controllers/chef-controller');
+const sessionController = require('./app/controllers/sessionController');
 
 //ROTAS DA PAGINA FOODFY
 route.get("/",siteController.index);
@@ -33,16 +34,24 @@ route.get("/receitas/:index", function (req, res) {
 
 //ROTAS DA PAGINA RECIPES
 
- route.get('/admin',controller.index) //OK
-route.put('/admin/recipe',multer.array('photos',6),controller.put); //OK
+route.put('/admin/recipe',multer.array('photos',6),recipeController.put); //OK
 route.get('/admin/edit',function(req,res){
     res.render('administrator/edit');
 })
-route.get('/admin/recipe/create',controller.create); //OK
-route.post('/admin/recipe/create',multer.array('photos',6),controller.post);
-route.get('/admin/recipe/edit/:id',controller.edit);
-route.get('/admin/recipe/:id',controller.show);
-route.delete('/admin/recipe',controller.delete); //OK
+route.get('/admin/recipe/create',recipeController.create); //OK
+route.post('/admin/recipe/create',multer.array('photos',6),recipeController.post);
+route.get('/admin/recipe/edit/:id',recipeController.edit);
+route.get('/admin/recipe/:id',recipeController.show);
+route.delete('/admin/recipe',recipeController.delete); //OK
+
+
+// ROTAS PARA LOGIN
+route.get('/admin',sessionController.index)
+// route.post('/admin/login',sessionController.index) 
+route.get('/admin/forgot-password',sessionController.forgot) 
+
+route.get('/admin/reset-password',sessionController.reset) 
+
 
 
 
