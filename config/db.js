@@ -7,4 +7,3 @@ module.exports = new Pool({
     port:5432,
     database:"foodfy"
 })
- 

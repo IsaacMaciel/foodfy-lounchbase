@@ -9,11 +9,14 @@
                 <div class="chef-image">
                    <img src="{{chef.src}}" alt="">
                 </div>
-                <div class="chef-content">
-                    <span class="chef-span">{{chef.name}} </span>
-                    <p>{{chef.total}} receitas</p>
-                    
-                </div>
+                {% for chefTotal in chefsTotal %}
+                    {% if chef.id == chefTotal.id %}
+                        <div class="chef-content">
+                            <span class="chef-span">{{chef.name}} </span>
+                            <p>{{chefTotal.total}} receitas</p>         
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
 
         {% endfor %}  

@@ -40,6 +40,17 @@ module.exports = {
         }
 
     },
+    allTotalRecipe() {
+        try {
+            const query = `SELECT chefs.*, COUNT (recipes) AS total
+            FROM chefs
+            LEFT JOIN recipes ON (recipes.chef_id = chefs.id)
+            GROUP BY chefs.id`
+            return db.query(query);
+        } catch (error) {
+            
+        }
+    },
     findOneChef(id) {
         const query = `SELECT chefs.*
         FROM chefs

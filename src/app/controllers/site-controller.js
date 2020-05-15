@@ -82,7 +82,10 @@ module.exports = {
         ...chef,
         src:`${req.protocol}://${req.headers.host}${chef.path.replace("public","")}`
     }));
-            return res.render('site/chefs',{chefs:chefsFound});
+    
+    results = await Chefs.allTotalRecipe();
+    const chefsTotal = results.rows;
+            return res.render('site/chefs',{chefs:chefsFound,chefsTotal});
 
     }
 

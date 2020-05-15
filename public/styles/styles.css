@@ -12,12 +12,36 @@ h1#search{
     margin-top:50px;
 }
 
-header, section,main{
+
+
+body {
     max-width: 940px;
     margin: 0 auto;
-    position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
+header {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    padding: 30px 0;
+    align-items: center;
+}
+main {
+    flex:1;
+}
+
+footer {
+    background: #EEEEEE;
+    padding: 20px 0;
+    font-size: 14px;
+    color: #999999;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+}
 
 
 
@@ -27,18 +51,15 @@ header, section,main{
    color:black;
    font-size: 16px;
    font-family: Roboto;
-   position: relative;
-   bottom: 40px;
    
 }
 .filter {
     display: grid;
     grid-template-columns: 246px 97px ;
-    position: absolute;
-    right: 0px;
-    top: 41px;
     box-sizing: border-box;
     gap: 10px;
+    position: absolute;
+    right: 0px;
 }
 
 input[type="text"] {
@@ -61,9 +82,7 @@ button {
 
 
 header img {
-    margin-top: 36px;
-    margin-bottom: 36px;
-    margin-right: 122.4px;
+ margin-right: 120px;  
 
 }
 
@@ -154,23 +173,8 @@ header img {
 }
 
 
-.rodape {
-    background: #EEEEEE;
 
-    height: 32px;
-    width:100%;
-    text-align: center;
-    margin-top: auto;
-}
-.rodape p {
-    font-family: 'Open Sans', sans-serif;
-    font-size: 14px;
-    color: #999999;
-    position: relative;
-    line-height: 32px;
-  
-    
-}
+
 
 /** SOBRE.HTML **/
 .parag{
