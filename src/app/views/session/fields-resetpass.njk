@@ -1,17 +1,4 @@
  <div class="item">
-    <div>Email</div>
-        <div class="input">
-            <input 
-            type="email" 
-            name="email" 
-            value="{{user.email}}"
-            {# onblur="Validate.apply(this,'isEmail')" #}
-            placeholder="Digite o seu email"
-            >
-     </div>
- </div>
-
- <div class="item">
     <div>Nova senha</div>
         <div class="input">
             <input 
@@ -32,3 +19,4 @@
             >
         </div>
  </div>
+ <input type="hidden" name="token" value={{token}}>
