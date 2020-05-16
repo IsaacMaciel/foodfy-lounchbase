@@ -7,6 +7,9 @@ const siteController = require('./app/controllers/site-controller');
 const chef = require('./app/controllers/chef-controller');
 const sessionController = require('./app/controllers/sessionController');
 
+const sessionValidator = require('./app/validators/session');
+const {redirectToLogin} = require('./app/middleware/session');
+
 //ROTAS DA PAGINA FOODFY
 route.get("/",siteController.index);
 
@@ -33,21 +36,21 @@ route.get("/receitas/:index", function (req, res) {
 
 
 //ROTAS DA PAGINA RECIPES
-
-route.put('/admin/recipe',multer.array('photos',6),recipeController.put); //OK
-route.get('/admin/edit',function(req,res){
+route.get('/admin/recipes',redirectToLogin,recipeController.index)
+route.put('/admin/recipe',redirectToLogin,multer.array('photos',6),recipeController.put); //OK
+route.get('/admin/edit',redirectToLogin,function(req,res){
     res.render('administrator/edit');
 })
-route.get('/admin/recipe/create',recipeController.create); //OK
-route.post('/admin/recipe/create',multer.array('photos',6),recipeController.post);
-route.get('/admin/recipe/edit/:id',recipeController.edit);
-route.get('/admin/recipe/:id',recipeController.show);
-route.delete('/admin/recipe',recipeController.delete); //OK
+route.get('/admin/recipe/create',redirectToLogin,recipeController.create); //OK
+route.post('/admin/recipe/create',redirectToLogin,multer.array('photos',6),recipeController.post);
+route.get('/admin/recipe/edit/:id',redirectToLogin,recipeController.edit);
+route.get('/admin/recipe/:id',redirectToLogin,recipeController.show);
+route.delete('/admin/recipe',redirectToLogin,recipeController.delete); //OK
 
 
 // ROTAS PARA LOGIN
 route.get('/admin',sessionController.index)
-// route.post('/admin/login',sessionController.index) 
+route.post('/admin/login',sessionValidator.login,sessionController.login) 
 route.get('/admin/forgot-password',sessionController.forgot) 
 
 route.get('/admin/reset-password',sessionController.reset) 
@@ -57,16 +60,16 @@ route.get('/admin/reset-password',sessionController.reset)
 
 //ROTAS DA PAGINA CHEF
 
-route.get('/admin_chefs',chef.index)
+route.get('/admin/chefs',redirectToLogin,chef.index)
 
 route.get('/admin/chefs/create', (req,res) => {
     res.render('administrator/chefs/create');
 })
-route.put('/admin/chef',multer.single('photochef'),chef.put);
-route.post('/admin/chefs/create',multer.single('photochef'),chef.post);
-route.get('/admin/chefs/edit/:id',chef.edit)
-route.get('/admin_chef/:id',chef.show);
-route.delete('/admin/chef',chef.delete);
+route.put('/admin/chef',redirectToLogin,multer.single('photochef'),chef.put);
+route.post('/admin/chefs/create',redirectToLogin,multer.single('photochef'),chef.post);
+route.get('/admin/chefs/edit/:id',redirectToLogin,chef.edit)
+route.get('/admin_chef/:id',redirectToLogin,chef.show);
+route.delete('/admin/chef',redirectToLogin,chef.delete);
 
 
 

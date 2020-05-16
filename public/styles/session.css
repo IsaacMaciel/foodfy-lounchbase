@@ -12,6 +12,11 @@ section form{
     border-radius: 4px;
     width: 90%;
 }
+body {
+ max-width: 500px;
+ position: relative;
+margin: 0 auto;
+}
 
 .logo {
     display: flex;
@@ -20,10 +25,6 @@ section form{
     margin-top: 35px;
 
     margin-bottom: 145px;
-}
-.login.container.form {
-    max-width: 500px;
-    margin: 0 auto;
 }
 
 .header {

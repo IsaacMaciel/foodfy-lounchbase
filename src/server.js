@@ -4,6 +4,7 @@ const server = express ();
 const routes = require('./routes');
 
 const methodOverride = require('method-override');
+const session = require('../config/session');
 
 /* Chamando e configurando o nosso templa engine Nunjuncks */
 const nunjucks = require('nunjucks');
@@ -12,6 +13,8 @@ server.use(methodOverride('_method'));
 server.use(express.static('public'));
 server.use(express.static('images'));
 server.use(express.static('js'));
+
+server.use(session);
 server.use(express.urlencoded({extended:true}));
 
 server.use(routes);
