@@ -1,0 +1,54 @@
+ {% extends "administrator/layout.njk" %}
+ {% block content %}
+
+<div class="titleandbutton">
+    <h1>Atualizar Usuário</h1>
+    <div class="options">
+        <input type="submit" form="put-user" value="Salvar" id="save" onclick="send(event)">
+        <input type="submit" form="delete-user" value="Deletar" >
+   
+    </div>
+</div>
+<form action="/admin/usersAdm?_method=PUT" method="POST" id="put-user">
+    <div class="fields">
+        {% include 'administrator/user/fields.njk'%}
+
+        <div class="item">
+        <div></div>
+            <div class="input">
+                <input 
+                type="radio" 
+                name="is_admin"
+                value="true"
+                {% if user.is_admin == true %}
+                    checked
+                {% endif %}
+                id="admin" 
+                >
+                <label for="admin">Administrador</label>
+            </div>
+        </div>
+    </div>
+<input type="hidden" name="id" value={{user.id}}>
+
+</form>
+<form action="/admin/users?_method=DELETE" method="POST" id="delete-user">
+    <input type="hidden" name="id" value={{user.id}}>
+    <input type="hidden" name="name" value={{user.name}}>
+
+</form>
+
+<script>
+    const formDelete = document.querySelector("#delete-user");
+    formDelete.addEventListener("submit",function(event) {
+        const confirmation = confirm("Deseja deletar?");
+
+        if (!confirmation) {
+            event.preventDefault();
+        }
+    
+    })
+
+</script>
+
+ {% endblock content %}

@@ -11,11 +11,20 @@
             <img src="/images/logo-admin.png" alt="logo" >                    
             <a class="menu" href="/admin/recipes">RECEITAS</a>
             <a class="menu" href="/admin/chefs">CHEFS</a>  
+            {% if session.is_admin == true %}
+                <a class="menu" href="/admin/users">USUÁRIOS</a>  
+            {% endif %}
+            {% if session.is_admin == false %}
+                <a class="menu" href="/admin/myaccount">MINHA CONTA</a>  
+            {% endif %}
+            <a class="logout" href="/admin/logout">Sair</a> 
           </div>
           
     </header>
   
     <main>
+         {% include 'parts/message.njk'%}
+
          {% block content %} {% endblock content %} 
     </main>
     <script src="/script.js"></script>

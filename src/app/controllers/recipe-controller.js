@@ -1,7 +1,18 @@
 const fs = require('fs');
 const Recipes = require('../models/recipe');
 const Files = require('../models/Files');
+const User = require('../models/User');
 const RecipeFiles = require('../models/recipe_files');
+
+async function getImage(recipeId,req) {
+    const results = await RecipeFiles.find(recipeId);
+    const files = results.rows.map(file => ({
+        ...file,
+        src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
+    }))
+
+    return files[0];
+}
 
 module.exports = {
 
@@ -34,31 +45,38 @@ module.exports = {
         
     }, 
     async index(req,res) {
-        let results = await Recipes.index();
-        const recipe = results.rows;
-      
+        //Pelo UserId, verifico se a sessão logada é de administrador
+        const id =  req.userId;
+        //Buscando quem é o usuário Logado
+        const user = await User.findOne({
+            where:{id}
+        })
+        //Verificando se o usuário logado é administrador de sistema
+        if (user.is_admin == true) {
+            //Se for, então será exibido todas as receitas registradas
+            let results = await Recipes.index();
+            const recipe = results.rows;
+          
+            
+           
         
-        async function getImage(recipeId) {
-            const results = await RecipeFiles.find(recipeId);
-            const files = results.rows.map(file => ({
-                ...file,
-                src: `${req.protocol}://${req.headers.host}${file.path.replace('public', '')}`
-            }))
+            const filesPromise = await results.rows.map(recipe => getImage(recipe.id,req));
+            const images = await Promise.all(filesPromise);
+            return res.render('administrator/index',{foods:recipe,images})
 
-            return files[0];
         }
-    
-        const filesPromise = await results.rows.map(recipe => getImage(recipe.id));
+        //Se não, será mostrado todas as receitas criadas pelo usuário cadastrado
+
+        let results = await Recipes.indexforUserId(id);
+        const recipe = results.rows;
+
+        const filesPromise = await results.rows.map(recipe => getImage(recipe.id,req));
         const images = await Promise.all(filesPromise);
-
-
-        
-
-        
-        
-
-
         return res.render('administrator/index',{foods:recipe,images})
+
+        
+
+    
         
         
     },
@@ -72,7 +90,9 @@ module.exports = {
         
     },
    async post(req,res) {
-        
+
+        req.body.user_id = req.userId;
+
         const keys = Object.keys(req.body);
         for( key of keys) {
             if (req.body[key] == "" && key != "removed_files" ) {
@@ -181,7 +201,7 @@ module.exports = {
        
 
             await Recipes.update(req.body);
-            return res.redirect('/admin');
+            return res.redirect('/admin/recipes');
            
         
             
@@ -206,7 +226,7 @@ module.exports = {
 
 
 
-        return  res.redirect('/admin');
+        return  res.redirect('/admin/recipes');
        
             
                 

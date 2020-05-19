@@ -3,7 +3,12 @@ const User = require('../models/User');
 const {checkAllFields } = require('../lib/utils');
 
 async function login (req,res,next) {
-    const {email,password} = req.body;
+    const {password} = req.body;
+
+    let { email } = req.body;
+    email = email.toLowerCase();
+    req.body.email = email;
+
 
     const user = await User.findOne({
         where: {email},

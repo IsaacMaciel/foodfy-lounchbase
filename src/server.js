@@ -3,6 +3,7 @@ const express = require('express');
 const server = express ();
 const routes = require('./routes');
 
+
 const methodOverride = require('method-override');
 const session = require('../config/session');
 
@@ -15,6 +16,10 @@ server.use(express.static('images'));
 server.use(express.static('js'));
 
 server.use(session);
+server.use((req,res,next) => {
+    res.locals.session = req.session;
+    next();
+})
 server.use(express.urlencoded({extended:true}));
 
 server.use(routes);

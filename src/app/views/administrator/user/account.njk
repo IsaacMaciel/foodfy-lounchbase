@@ -1,0 +1,16 @@
+ {% extends "administrator/layout.njk" %}
+ {% block content %}
+
+<div class="titleandbutton">
+    <h1>Bem vindo {{user.name}}</h1>
+    <div class="options">
+    <input type="submit" form="put-user" value="Salvar" id="save" onclick="send(event)">
+    </div>
+</div>
+    <form action="/admin/users?_method=PUT" method="POST" id="put-user">
+        <div class="fields">
+            {% include 'administrator/user/fields.njk'%}
+        </div>
+    </form>
+
+ {% endblock content %}

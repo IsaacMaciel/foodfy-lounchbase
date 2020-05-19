@@ -7,16 +7,18 @@ module.exports = {
     create(data){
         try {
             const query=`INSERT INTO recipes (
+                        user_id,
                         chef_id,
                           title,
                           ingredients,
                           preparation,
                           information,
                         created_at
-            ) VALUES ($1,$2,$3,$4,$5,$6)
+            ) VALUES ($1,$2,$3,$4,$5,$6,$7)
             RETURNING id`;
     
             const values = [
+                data.user_id,
                 data.chef,
                 data.title,
                 data.ingredients,
@@ -53,6 +55,27 @@ module.exports = {
         } catch (error) {
             console.error(`Erro no index do recipe: ${error}`);
             
+        }
+    },
+   async indexforUserId(id){
+        try {
+
+            const query = `SELECT recipes.*,chefs.name  AS author
+            FROM recipes
+            LEFT JOIN chefs ON (recipes.chef_id = chefs.id)
+            WHERE recipes.user_id = ${id}
+            ORDER BY created_at DESC`;
+            
+            let results = await db.query(query);
+            //Se o usuário não tiver cadastrado nenhuma receita, então cai no IF e retorna pro controller
+            if (results.rowCount == 0) return results;
+            
+            return db.query(query);
+
+            
+
+        } catch (error) {
+            console.error(`Erro no indexforUserId do recipe: ${error}`);
         }
     },
     find(id) {

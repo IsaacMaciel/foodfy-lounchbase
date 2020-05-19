@@ -1,5 +1,6 @@
 const chefs = require('../models/chefs');
 const Files = require('../models/Files');
+const User = require('../models/User');
 const RecipeFiles = require('../models/recipe_files');
 const Recipes = require('../models/recipe');
 const fs = require('fs');
@@ -37,14 +38,8 @@ module.exports = {
             ...chef,
             src:`${req.protocol}://${req.headers.host}${chef.path.replace("public","")}`
         }))
-        /*
-        let files = results.map(result => result.rows[0])
-        files = files.map(file => ({
-            ...file,
-            src: `${req.protocol}://${req.headers.host}${file.path.replace("public","")}`
-        }));*/
-
-        return res.render("administrator/chefs/list",{chefs:chefsFound})
+      
+        return res.render("administrator/chefs/list",{chefs:chefsFound});
 
     },
 
@@ -117,24 +112,22 @@ module.exports = {
             await Files.update(req.file,file_id);
             fs.unlinkSync(path);
         }
-        return res.redirect('/admin_chefs');
+        return res.redirect('/admin/chefs');
         
       
     },
     async delete(req,res) {
-    const chefId = req.body.id;
+        const chefId = req.body.id;
 
-    const recipeChef = await chefs.find(chefId);
-    const {total} = recipeChef.rows[0];
-
-    let results = await chefs.findOneChef(chefId);
-    const fileId = results.rows[0].file_id;
+        let results = await chefs.findOneChef(chefId);
+        const fileId = results.rows[0].file_id;
+        
     
-    if (total > 0) return res.send("O chefe não pode ser deletado se há uma receita associada a ele, antes apague a receita.");
         await chefs.delete(chefId);
         await Files.delete(fileId);
+            
+        return res.redirect('/admin/chefs');
         
-        return res.redirect('/admin_chefs');
     
         
     }

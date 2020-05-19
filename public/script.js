@@ -151,19 +151,19 @@ const Validate = {
         input.value = results.value;
         
 
-        if(results.error) Validate.displayError(input,results.error);
+        if(results.error) Validate.displayError(input);
   
     },
-    displayError(input,error) {
-        const div = document.createElement('div');
-        div.classList.add('error');
-        div.innerHTML = error;
-        input.parentNode.appendChild(div);
+    displayError(input) {
+        input.style.border = "2px solid #DC4747";
+        input.classList.add('erro');
         input.focus();
+  
     },
     clearError(input) {
-        const errorDiv = input.parentNode.querySelector('.error');
-        if(errorDiv) errorDiv.remove();
+        input.style.border = "1px solid #DDDDDD"
+        input.classList.remove('erro');
+
     },
     isEmail(value) {
         let error = null;
@@ -174,40 +174,16 @@ const Validate = {
             error,
             value
         }
-    },
-    isCpfCnpj(value) {
-        let error = null;
-
-        const cleanValues = value.replace(/\D/g,"");
-
-        if(cleanValues.length > 11 && cleanValues.length!== 14){
-
-            error = "CNPJ incorreto";
-        }
-        else if (cleanValues.length < 12 && cleanValues.length !== 11) {
-            error = "CPF incorreto";
-        }
-
-        return {
-            error,
-            value
-        }
-
-    },
-    isCep(value) {
-        let error = null;
-
-        const cleanValues = value.replace(/\D/g,"");
-
-        if(cleanValues.length !== 8 ) error = "CEP incorreto";
-
-
-        return {
-            error,
-            value
-        }
     }
+   
 
 
 }
 
+function  send(event) {
+    const fieldError = document.querySelectorAll(".erro");
+    if (fieldError.length > 0) {
+        alert('Atente para os campos que estão em vermelho!')
+        event.preventDefault();
+    }
+}

@@ -9,9 +9,16 @@ module.exports = {
         return res.render("session/login");
     },
     login(req,res) {
+        //Passando dados da sessão para as demais rotas
         req.session.userId = req.user.id;
-       return res.redirect("/admin/recipes");
+        req.session.is_admin = req.user.is_admin;
 
+       return res.redirect("/admin/users/myaccount");
+
+    },
+    logout(req,res) {
+        req.session.destroy();
+        return res.redirect('/admin');
     },
     forgotForm(req,res) {
         return res.render("session/forgot-password");

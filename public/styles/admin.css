@@ -10,6 +10,9 @@ header {
     flex-direction: row;
 }
 header .header {
+    display:flex;
+    align-items: center;
+
     width: 100%;
     background-color: #111;
     padding: 16px;
@@ -28,6 +31,16 @@ header .header  a {
 header .header a.menu {
     margin-left: 50px;
 }
+header .header .logout {
+    position: absolute;
+    left:75%;
+
+    font-family: Roboto;
+    font-size: 15px;
+    color: #FFFFFF;
+    text-align: right;
+    text-transform: uppercase;
+}
 header .header a.menu+a{
     margin-left: 30px;
 }
@@ -38,11 +51,15 @@ header img {
 }
 
 main {
-    
+   position: relative; 
    width: 940px;
+   max-width: 940px;
    align-items: center;
    margin: 0 auto;
 }
+
+
+
 
 main h1 {
     font-family: Roboto;
@@ -162,7 +179,7 @@ main h1 {
     text-decoration: none;
     font-family: Roboto;
     color: white;
-    padding: 8px 16px;
+    padding: 8px 32px;
     font-weight: bold;
 }
 .titleandbutton h1 {
@@ -262,8 +279,14 @@ button[type="button"] {
     font-weight: bold;
     background-color: white;
 }
-
-input[type="text"],textarea {
+.input.email {
+    display: flex;
+    flex-direction: column;
+}
+.error {
+    border: 1px solid red;
+}
+input[type="text"],input[type="email"],input[type="password"],textarea {
     width: 100%;
     outline: none;
     font-size: 18px;
@@ -514,4 +537,84 @@ form h3 {
     opacity: 0;
     width: 100%;
     height: 100%;
+}
+
+/* page Users List */
+
+.container-user {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-top: 70px;
+    grid-column-gap: 220px;
+    grid-row-gap:50px;
+}
+
+.container-user .user {
+   display: flex;
+   flex-direction: column;
+}
+.container-user .user .user-name {
+    font-size: 18px;
+    color: #111111;
+    font-family: Roboto;
+}
+
+.container-user .user .user-email {
+    font-family: Roboto;
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 16px;
+}
+.container-user .user .user-control {
+    
+}
+.container-user .user .user-control a {
+    font-size: 14px;
+    font-family: Roboto;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    color: #F55A5A;
+}
+
+.container-user .user .user-control a:first-child {
+    color: #6558C3;
+    margin-right: 16px;
+}
+
+/* page Users Create */
+.fields {
+    display: grid;
+    grid-template-columns: 450px 450px;
+    gap:40px;
+    margin-top:70px;
+}
+.options  input:last-child,.options a {
+    background: #8A8A8A;
+    margin-left:10px;
+    height: 37px;
+    width: 137px;
+}
+.options  input:last-child:hover,.options a:hover {
+    background-color: #DC4747 ;
+    transition: all 400ms;
+}
+.fields div:last-child {
+
+    align-self: center;
+
+}
+.fields .item div:first-child {
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight:bold;
+
+    margin-bottom: 10px;
+    color: #111111;
+}
+label {
+    font-size: 16px;
+    font-family: Roboto;
+    font-weight:bold;
+    color: #111111;
 }

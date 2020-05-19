@@ -1,5 +1,6 @@
 {
     "vscode-janus-debug.uploadManually": [
-        "session"
+        "session",
+        "chef"
     ]
 }

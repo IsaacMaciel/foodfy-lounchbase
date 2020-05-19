@@ -1,0 +1,34 @@
+ {% extends "administrator/layout.njk" %}
+ {% block content %}
+
+<div class="titleandbutton">
+    <h1>Criar Usuário</h1>
+    <div class="options">
+    <input type="submit" form="create-user" value="Salvar" id="save" onclick="send(event)">
+    <a id="cancel" href="/admin/users">Cancelar</a>
+    </div>
+</div>
+    <form action="/admin/users" method="POST" id="create-user">
+        <div class="fields">
+            {% include 'administrator/user/fields.njk'%}
+
+              <div class="item">
+    <div></div>
+        <div class="input">
+            <input 
+            type="radio" 
+            name="is_admin"
+            value="true"
+            {% if user.is_admin == true %}
+                checked
+            {% endif %}
+            id="admin" 
+            >
+            <label for="admin">Administrador</label>
+     </div>
+ </div>
+        </div>
+    </form>
+
+
+ {% endblock content %}

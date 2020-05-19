@@ -1,0 +1,29 @@
+ {% extends "administrator/layout.njk" %}
+ {% block content %}
+
+<div class="titleandbutton">
+    <h1>Usuários</h1>
+    <a href="/admin/users/create">Novo</a>
+</div>
+
+    <div class="container-user">
+         {% for user in users %}
+
+            <div class="user">
+                <div class="user-name">
+                    {{user.name}} 
+                </div>
+                <div class="user-email">
+                {{user.email}}
+                </div>
+                <div class="user-control">
+                <a href="/admin/users/edit/{{user.id}}">Editar</a>                    
+                <a href="/admin_chef/{{chef.id}}">Remover</a>
+                </div>
+            </div>
+        {% endfor %}  
+
+    </div>
+
+
+ {% endblock content %}
