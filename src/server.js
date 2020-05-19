@@ -1,7 +1,7 @@
 /* Chamando o express */
 const express = require('express');
 const server = express ();
-const routes = require('./routes');
+const routes = require('./app/routes/index');
 
 
 const methodOverride = require('method-override');
@@ -30,11 +30,7 @@ nunjucks.configure("src/app/views",{
     noCache:true
 });
 
-/* Caso pesquisem algo nao existente */
-/*server.use(function(req, res) {
-    res.status(404).render("not-found");
-  });
-*/
+
 /* Configurando a porta do servidor */
 server.listen(3000,function(){
     console.log("Foodfy:3000 Rodando");
