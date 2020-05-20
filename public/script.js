@@ -187,3 +187,44 @@ function  send(event) {
         event.preventDefault();
     }
 }
+
+function allfields(event) {
+    const itens =  document.querySelectorAll('.item input,.item select,.item textarea');
+
+    let count = 0;
+
+    for (let item of itens) {
+        if (item.value == "") {
+            item.style.border = "2px solid #DC4747";
+            item.classList.add('erro');
+            item.focus();
+            count++;
+        } else if (item.value != "" && item.classList.contains('erro')) {
+            item.style.border = "1px solid #DDDDDD"
+            item.classList.remove('erro');
+        }      
+    }
+
+    if (count > 0) {
+        alert("Atente para os campos que estão em vermelho!");
+        event.preventDefault();
+    }
+}
+
+function chefCreateValidatorText(event) {
+   const item =  document.querySelectorAll('.item input[type="text"]');
+
+   if(item.value = "") {
+       item.style.border = "2px solid #DC4747";
+       item.classList.add('erro');
+       imte.focus();
+       alert("Preencha o campo que está em vermelho")
+       event.preventDefault();
+   }
+   if (item.value != "" && item.classList.contains('erro')) {
+       
+       item.style.border = "1px solid #DDD";
+       item.classList.remove('erro');
+   }
+
+}

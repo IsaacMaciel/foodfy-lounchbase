@@ -70,6 +70,14 @@ ADD CONSTRAINT recipe_files_recipe_id_fkey
 FOREIGN KEY ("recipe_id") REFERENCES "recipes" ("id") 
 ON DELETE CASCADE;
 
+ALTER TABLE "chefs" DROP CONSTRAINT IF EXISTS chefs_file_id_file_id_fkey,
+ADD CONSTRAINT chefs_file_id_file_id_fkey
+FOREIGN KEY ("file_id") REFERENCES "files" ("id") 
+ON DELETE CASCADE;
+
+
+
+
 -- procedures
 DROP TRIGGER IF EXISTS set_timestamp ON recipes;
 DROP TRIGGER IF EXISTS set_timestamp ON chefs;

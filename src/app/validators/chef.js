@@ -26,5 +26,22 @@ module.exports = {
          });
 
          next();
+    },
+    post(req,res,next) {
+        const keys = Object.keys(req.body);
+
+        for( key of keys) {
+            if (req.body[key] == "") {
+                return res.render('administrator/chefs/create',{
+                    error:"Favor, preencha todos os campos corretamente."
+                })
+            }
+        }
+     
+        if (!req.file) return res.render('administrator/chefs/create',{
+            error:"Favor, envie sua foto de avatar"
+        })
+
+        next();
     }
 }

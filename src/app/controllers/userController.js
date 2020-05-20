@@ -79,7 +79,7 @@ module.exports = {
                 name:name,
                 email:email
             })
-            return res.render("administrator/user/account",{
+            return res.render("administrator/user/edit",{
                 sucess:"Alteração realizada com sucesso",
                 user:req.body
             })
@@ -92,7 +92,7 @@ module.exports = {
             password:password
         })
 
-        return res.render("administrator/user/account",{
+        return res.render("administrator/user/edit",{
             sucess:"Alteração realizada com sucesso",
             user:req.body
         })

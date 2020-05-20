@@ -21,4 +21,17 @@
     <input type="hidden" name="id" value={{chef.id}}>
 </form>
 
+<script>
+
+    const formDelete = document.querySelector("#delete-chef");
+    formDelete.addEventListener("submit",function(event) {
+        const confirmation = confirm("Deseja deletar?");
+
+        if (!confirmation) {
+            event.preventDefault();
+        }
+    
+    })
+</script>
+
 {% endblock content %}

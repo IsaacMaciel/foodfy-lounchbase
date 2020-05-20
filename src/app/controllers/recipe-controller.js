@@ -91,17 +91,6 @@ module.exports = {
     },
    async post(req,res) {
 
-        req.body.user_id = req.userId;
-
-        const keys = Object.keys(req.body);
-        for( key of keys) {
-            if (req.body[key] == "" && key != "removed_files" ) {
-                return res.send('Favor, preencha todos os campos corretamente.');
-            }
-        }
-
-        if (req.files.length == 0) return res.send('Favor, enviar pelo menos 1 foto');
-
         //Cadastro  na tabela Receita
         let results = await Recipes.create(req.body);
         const recipeId = results.rows[0].id;
@@ -117,14 +106,8 @@ module.exports = {
         const recipeFilesPromisse = recipeFiles.map(file => RecipeFiles.create(recipeId,file.id));
         results = await Promise.all(recipeFilesPromisse);
         
-
-       
-
         return res.redirect(`/admin/recipe/${recipeId}`);
-
-
-       
-    
+         
         },
     
 
@@ -215,16 +198,16 @@ module.exports = {
 
         const recipeId = req.body.id;
         let results = await RecipeFiles.findbyRecipe(recipeId);
+    
+        
+        const deleteFileFromLocalStore = results.rows.map(file => {
+            Files.delete(file.file_id);
+        })
+        await Promise.all(deleteFileFromLocalStore);
 
-        const recipeFilesDeletePromise = results.rows.map(item => RecipeFiles.delete(item.file_id));
-        await Promise.all(recipeFilesDeletePromise);
-
-        const fileDeletePromise = results.rows.map(item => Files.delete(item.file_id));
-        await Promise.all(fileDeletePromise);
 
         await Recipes.delete(recipeId);
-
-
+        
 
         return  res.redirect('/admin/recipes');
        

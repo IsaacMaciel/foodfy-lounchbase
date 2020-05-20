@@ -10,15 +10,7 @@ module.exports = {
 
 
   async  post(req,res) {
-        const keys = Object.keys(req.body);
-
-        for( key of keys) {
-            if (req.body[key] == "") {
-                return res.send('Favor, preencha todos os campos corretamente.');
-            }
-        }
-     
-        if (!req.file) return res.send('Favor, selecione pelo menos uma imagem');
+       
 
         let results = await Files.create(req.file);
         const fileId = results.rows[0].id;
@@ -26,7 +18,7 @@ module.exports = {
         results = await chefs.create({...req.body,fileId});
         const chefId = results.rows[0].id;
 
-        res.redirect(`/admin/chefs/edit/${chefId}`);
+        res.redirect(`/admin/chef/edit/${chefId}`);
     },
 
   async  index(req,res) {
@@ -126,7 +118,7 @@ module.exports = {
         await chefs.delete(chefId);
         await Files.delete(fileId);
             
-        return res.redirect('/admin/chefs');
+        return res.redirect('/admin/chef');
         
     
         

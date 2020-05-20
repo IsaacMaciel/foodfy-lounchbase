@@ -55,8 +55,11 @@ module.exports = {
         try {
             const result = await db.query(`SELECT * FROM files WHERE id = ${id}`);
             const file = result.rows[0];
-            fs.unlinkSync(file.path);
-            return db.query(`DELETE FROM files WHERE id = ${id}`);
+            fs.unlinkSync(file.path); 
+
+            await db.query(`DELETE FROM files WHERE id = ${id}`);
+            return;
+            
         } catch (error) {
             console.error(`Erro no DELETE do Files: ${error}`);
             

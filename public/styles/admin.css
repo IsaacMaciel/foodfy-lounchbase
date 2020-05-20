@@ -363,6 +363,11 @@ form h3 {
     grid-template-columns: 64px 1fr;
     gap: 10px;
 }
+.chef-content {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
 
 .container-chefs .chef .chef-image img {
     width: 64px;

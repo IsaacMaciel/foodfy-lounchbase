@@ -30,12 +30,12 @@
 
     </div>
 
-    <div class="item">
+    <div class="recipe-title">
         <h3>Nome da Receita</h3>
         <input type="text" name="title" value="{{recipes.title}}" placeholder="Nome da sua receita">
     </div>
 
-    <div class="item">
+    <div class="author-recipe">
         <h3>Chef</h3>
         <select name="chef" >
                 {% for chef in  chefOptions %}
@@ -55,7 +55,7 @@
        </select>          
     </div>
 
-    <div id="ingredients" class="item">
+    <div id="ingredients">
         <h3>Ingredientes</h3>
 
        
@@ -75,7 +75,7 @@
     </div>
     <button type="button" class="add-ingredient">Add Ingredient</button>
 
-     <div id="preparations" class="item">
+     <div id="preparations">
         <h3>Modo de preparo</h3>
          {% for preparation in recipes.preparation %}
                 <div class="preparation">
@@ -91,9 +91,8 @@
     </div>
     <button type="button" class="add-preparation">Add preparation</button>
 
-    <div class="item"> <h3>Informações adicionais</h3>
-        <textarea name="information" style="height:200px;"  id="information-add" placeholder="Informações Adicioanais" cols="30" rows="10">{{recipes.information}}</textarea>
-    </div>
+    <div class="item"> <h3>Informações adicionais</h3></div>
+    <textarea name="information" style="height:200px;"  id="information-add" placeholder="Informações Adicioanais" cols="30" rows="10">{{recipes.information}}</textarea>
 
 
 

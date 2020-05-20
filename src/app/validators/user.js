@@ -38,14 +38,14 @@ async function put (req,res,next) {
 
      next();
 }
-async function alterUserOnlyAdm(req,res,next) {
+async function preventDeleteAdm(req,res,next) {
     const id = req.session.userId;
     const user = await User.findOne({
         where:{id}
     })
 
-    if (User.is_admin == false) return res.render("administrator/user/account",{
-        error:"Você não tem privilégios de ADM para deletar/alterar uma conta",
+    if (user.is_admin == true) return res.render("administrator/user/edit",{
+        error:"Você não pode se excluir!",
         user
     });
 
@@ -55,5 +55,5 @@ async function alterUserOnlyAdm(req,res,next) {
 module.exports = {
     post,
     put,
-    alterUserOnlyAdm
+    preventDeleteAdm
 }
