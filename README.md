@@ -36,7 +36,8 @@ $ git clone https://github.com/IsaacMaciel/foodfy-lounchbase.git
 # Depois de baixado vá para o diretório do projeto e execute o comando abaixo para instalar as dependências
 $ npm i
 
-#Caso não tenha instalado o postgreSql, favor instala-lo e depois rodar as query presente na pasta /config com o nome de Foodfy.SQL, Logo após, executar o comando abaixo para iniciar o projeto
+#Caso não tenha instalado o postgreSql, favor instala-lo e depois rodar as query presente 
+# na pasta /config com o nome de Foodfy.SQL, Logo após, executar o comando abaixo para iniciar o projeto
 $ npm start
 
 ```
