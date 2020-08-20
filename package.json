@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/IsaacMaciel/foodfy-lounchbase#readme",
   "dependencies": {
-    "bcrypt": "^4.0.1",
+    "bcrypt": "^5.0.0",
     "bcryptjs": "^2.4.3",
     "connect-pg-simple": "^6.1.0",
     "express": "^4.17.1",
